@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<section id="home" data-target="home">
+    <div class="action-banner">
+        <div class="container">
+            <h2>@FilmSitesi.Resources.lang.HosGeldinMesaji1</h2>
+            <p>@FilmSitesi.Resources.lang.HosGeldinMesaji2</p>
+        </div>
+    </div></div>
+    <h1><center>@FilmSitesi.Resources.lang.YeniFilmler</center></h1>
+    <div class="section-area">
+        <div class="container">
+            <div class="blog-slider-wrap">
+                <ul class="blog-slider">
+                    <li>
+                        <img src="~/assets/img/film/LUCY6055.jpg" alt="">
+                        <div class="overlay-data right">
+                            <div class="overlay-inner">
+                                <div>
+
+                                </div>
+                            </div>
+                            <a href="~/assets/img/film/LUCY6055.jpg" title="" class="zoom fancybox" rel="group1"><span class="fa fa-search"></span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="~/assets/img/film/PIKU1211.JPG" alt="">
+                        <div class="overlay-data right">
+                            <div class="overlay-inner">
+                                <div>
+
+                                </div>
+                            </div>
+                            <a href="~/assets/img/film/PIKU1211.JPG" title="" class="zoom fancybox" rel="group1"><span class="fa fa-search"></span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="~/assets/img/film/PARKER8054.JPG" alt="">
+                        <div class="overlay-data right">
+                            <div class="overlay-inner">
+                                <div>
+
+                                </div>
+
+                                <a href="~/assets/img/film/PARKER8054.JPG" title="" class="zoom fancybox" rel="group1"><span class="fa fa-search"></span></a>
+                            </div>
+                    </li>
+                    <li>
+                        <img src="~/assets/img/film/WELCOME TO THE PUNCH8115.JPG" alt="">
+                        <div class="overlay-data right">
+                            <div class="overlay-inner">
+                                <div>
+
+                                </div>
+                            </div>
+                            <a href="~/assets/img/film/WELCOME TO THE PUNCH8115.JPG" title="" class="zoom fancybox" rel="group1"><span class="fa fa-search"></span></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<font size="3" color="white"><FilmSitesi.Models.tbl_Film></font>
+
+<section id="portfolio" data-target="portfolio">
+    <div class="section-area portfolio offwhite">
+        <div class="container">
+            <div class="title-section text-center">
+                <h1>@FilmSitesi.Resources.lang.Kategoriler</h1>
+                <ul class="list-inline filter-list">
+                    <li class="active"><a href="#" title="" data-filter="*">Hepsi</a></li>
+                    @foreach (var item in ViewBag.Kategori)
+                    {
+                        <li><a href="#" title="" data-filter=".@item.KategoriAdi">@item.KategoriAdi</a></li>
+                    }
+                </ul>
+            </div>
+            <ul class="items_container">
+                @foreach (var item in Model)
+                {
+                    <li class="@item.kategori.KategoriAdi">
+                        <img src="@item.resimUrl" alt="">
+                        <div class="overlay-data top">
+                            <div class="overlay-inner">
+                                <div>
+                                    <h4>@item.FilmAdi</h4>
+                                    <p>@item.YonetmenAdi</p>
+                                </div>
+                            </div>
+                            <a href="@item.resimUrl" title="" class="zoom fancybox" rel="group1a"><span class="fa fa-search"></span></a>
+                        </div>
+                    </li>
+                }
+
+            </ul>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,72 @@
+﻿@model FilmSitesi.Models.tbl_BizeUlas
+@{
+    ViewBag.Title = "Iletisim";
+}
+<div class="row">
+    <section id="aboutus" data-target="aboutus">
+        <div class="section-area aboutus offwhite">
+            <div class="container">
+                <div class="title-section text-center">
+                    <h1>@FilmSitesi.Resources.lang.BizeUlasin</h1>
+                    <p>@FilmSitesi.Resources.lang.IletisimMesaj</p>
+                </div>
+                &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <div class="Compose-Message">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    @FilmSitesi.Resources.lang.MesajYaz
+                                </div>
+                                <div class="panel-body">
+
+                                   @using (Html.BeginForm())
+                                   {  @Html.ValidationSummary()
+                                        <div class="form-group">
+                                            <div class="col-md-3">@FilmSitesi.Resources.lang.Ad</div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(x => x.BizeUlasAd)
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-3">@FilmSitesi.Resources.lang.Soyad</div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(x => x.BizeUlasSoyAd)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-3">@FilmSitesi.Resources.lang.Email</div>
+
+                                            <div class="col-md-9">
+                                              
+                                                @Html.TextBoxFor(x => x.BizeUlasMail)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-3">@FilmSitesi.Resources.lang.Mesaj</div>
+
+                                            <div class="col-md-9">
+                                                @Html.TextAreaFor(x => x.BizeUlasMesaj)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-3"></div>
+
+                                            <div class="col-md-9">
+                                                <input type="submit" value="@FilmSitesi.Resources.lang.Gönder">
+                                            </div>
+
+                                        </div>
+
+                                   }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+</div>

@@ -1,0 +1,180 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Film Sitesi</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="/assets/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="preheader">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="lang-section dropdown">
+                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false"><span class="fa fa-globe"></span> <em>Languages:TR/EN</em> <em class="fa fa-angle-down"></em></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="javascript:void(0);" title="English">@Html.ActionLink("English", "ChangeCulture", "Home", new { lang = "en", returnurl = this.Request.RawUrl }, null)
+</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" title="Landing page themes">@Html.ActionLink("Türkçe", "ChangeCulture", "Home", new { lang = "tr", returnUrl = this.Request.RawUrl }, null)
+</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="phone-section">
+                            <a href="#" title=""><span class="fa fa-phone"></span> <em>G151210036</em></a>
+                        </div>
+                  
+                    <div class="col-sm-4">
+                        <div class="social-section">
+                            <a href="#" title="" class="fa fa-facebook"></a>
+                            <a href="#" title="" class="fa fa-twitter"></a>
+                            <a href="#" title="" class="fa fa-linkedin"></a>
+                            <a href="#" title="" class="fa fa-google-plus"></a>
+                            <a href="#" title="" class="fa fa-youtube"></a>
+                            <a href="#" title="" class="fa fa-instagram"></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-logo" href="#" title=""><img src="/assets/images/modern.png" alt=""></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href='@Url.Action("Index","Home")' title="">@FilmSitesi.Resources.lang.Anasayfa</a></li>
+                        <li><a href="@Url.Action("Hakkimizda","Home")" title="">@FilmSitesi.Resources.lang.Hakkimizda</a></li>
+                        <li><a href="@Url.Action("Portfoy","Home")" title="">@FilmSitesi.Resources.lang.Hedefler</a></li>
+                        <li><a href="@Url.Action("Iletisim","Home")" title="">@FilmSitesi.Resources.lang.İletisim</a></li>
+                        <li class="dropdown" id="search-link">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false"><span class="fa fa-search"></span></a>
+                            <ul class="dropdown-menu">
+                                <form class="form-inline">
+                                    <div class="input-group">
+                                        @*<input type="text" class="form-control" placeholder="Google'da Ara'">*@
+                                        @using (Html.BeginForm("GoogleSearch", "Home", FormMethod.Get))
+                                        {
+                                            <input type="text" name="search"
+                                                   placeholder="@FilmSitesi.Resources.lang.Arama"
+                                                   title="@FilmSitesi.Resources.lang.Arama" class="field_search">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default" type="button"><span class="fa fa-search"></span></button>
+                                            </span>
+                                        }
+                                       
+                                    </div><!-- /input-group -->
+                                </form>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse --><!-- /.container-fluid -->
+            </nav>
+        </div>
+    </div>
+
+    @RenderBody()
+    @RenderSection("scripts", required: false)
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 footer-left-section">
+                   <h3>@FilmSitesi.Resources.lang.FilmBilgiSistemi</h3>
+                    <p>@FilmSitesi.Resources.lang.EniyiFilmler</p>
+                    <p>@FilmSitesi.Resources.lang.YüksekKaliteFilm</p>
+                    <p>@FilmSitesi.Resources.lang.GüncelFilm</p>
+                    <p>@FilmSitesi.Resources.lang.YeniFilmler</p>
+                    
+                    <h3><!--<img src="/assets/images/logo-white.png" alt="">--></h3> 
+                    
+                    <div class="share-on">
+                        <a href="#" title="" class="fa fa-facebook"></a>
+                        <a href="#" title="" class="fa fa-twitter"></a>
+                        <a href="#" title="" class="fa fa-linkedin"></a>
+                        <a href="#" title="" class="fa fa-google-plus"></a>
+                        <a href="#" title="" class="fa fa-youtube"></a>
+                        <a href="#" title="" class="fa fa-instagram"></a>
+                    </div>
+                </div>
+                <div class="col-sm-4 footer-center-section">
+                    <h3>@FilmSitesi.Resources.lang.IletisimBilgileri</h3>
+                    <ul>
+                        <li>
+                            <span class="fa fa-map-marker"></span>
+                            Emre Hatayoglu <br>
+                            G151210036
+                        </li>
+                        <li>
+                            <span class="fa fa-phone"></span>
+                            P: 0541 727 74 37 <br> F: 0541 727 74 37
+                        </li>
+                        <li>
+                            <span class="fa fa-envelope"></span>
+                            emre.hatayoglu@sakarya.edu.tr
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 footer-right-section">
+                    <h3>@FilmSitesi.Resources.lang.AboneOl</h3>
+                    <p>@FilmSitesi.Resources.lang.AltMesaj</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Email">
+                        <span class="input-group-btn">
+                            <button class="btn btn-theme" type="button"><span class="fa fa-check"></span></button>
+                        </span>
+                    </div><!--/assets /input-group -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-bottom">
+        <p>@FilmSitesi.Resources.lang.Telifhakkı 2016</p>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <script type="text/javascript" src="/assets/js/jquery-latest.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <!-- for slider -->
+    <script src="/assets/js/jquery.bxslider.min.js"></script>
+    <!-- for mesonery -->
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+    <!-- for fancybox -->
+    <link rel="stylesheet" href="/assets/js/jquery.fancybox.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="/assets/js/jquery.fancybox.pack.js"></script>
+    <!-- end for fancy box -->
+    <script src="/assets/js/jquery.sticky-kit.min.js"></script>
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>
