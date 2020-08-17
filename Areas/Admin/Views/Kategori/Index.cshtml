@@ -1,0 +1,34 @@
+﻿@model List<FilmSitesi.Models.tbl_Kategori>
+@{
+    ViewBag.Title = "Kategoriler";
+}
+<div class="row">
+    <div class="bs-example4" data-example-id="contextual-table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ad</th>
+                    
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int i = 0; }
+                @foreach (var item in Model)
+                {
+                    i++;
+                    <tr class="active">
+                        <th scope="row">@i</th>
+                        <td>@item.KategoriAdi</td>
+                        <td>
+                            @Html.ActionLink("Sil", "Sil", "Kategori", new { area = "Admin" , id = item.tbl_KategoriID }, new { @class = "navbar-brand" })
+                            @Html.ActionLink("Güncelle", "Guncelle", "Kategori", new { area = "Admin", id = item.tbl_KategoriID }, new { @class = "navbar-brand" })
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

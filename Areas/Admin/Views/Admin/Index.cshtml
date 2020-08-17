@@ -1,0 +1,44 @@
+﻿@model List<FilmSitesi.Models.tbl_Admin>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Adminler</h2>
+
+<div class="panel panel-warning" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="">
+    <div class="panel-heading">
+        <h2>Güncelle/Sil</h2>
+        <div class="panel-ctrls" data-actions-container="" data-action-collapse="{&quot;target&quot;: &quot;.panel-body&quot;}"><span class="button-icon has-bg"><i class="ti ti-angle-down"></i></span></div>
+    </div>
+    <div class="panel-body no-padding" style="display: block;">
+        <table class="table table-striped">
+            <thead>
+                <tr class="warning">
+                    <th>#</th>
+                    <th>Kullanıcı Adı</th>
+                    <th>Şifre</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+            <tbody>
+                @{int i = 0; }
+                @foreach (var item in Model)
+                {
+                    i++;
+                    <tr class="active">
+                        <th scope="row">@i</th>
+                        <td>@item.AdminAdi</td>
+                        <td>@item.AdminSifre</td>
+                        <td>
+                            @Html.ActionLink("Sil", "Sil", "Admin", new { area = "Admin", id = item.tbl_AdminID }, new { @class = "navbar-brand" })
+                            @Html.ActionLink("Güncelle", "Guncelle", "Admin", new { area = "Admin", id = item.tbl_AdminID }, new { @class = "navbar-brand" })
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

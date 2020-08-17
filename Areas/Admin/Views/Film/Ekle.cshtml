@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Ekle";
+}
+@model FilmSitesi.Models.tbl_Film
+
+
+@using (Html.BeginForm("Ekle", "Film", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="col-md-8 inbox_right">
+        <div class="Compose-Message">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3> FİLM EKLE</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form>
+                        <hr>
+                        <label>Film Adı: </label><br>
+                        @Html.TextBoxFor(m => m.FilmAdi, new { @class = "form-control1 control3" })
+
+                        <label>Yönetmen Adı:  </label><br>
+                        @Html.TextBoxFor(m => m.YonetmenAdi, new { @class = "form-control1 control3" })
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Kategori</label>
+                            <div class="col-sm-9">
+                                @*@Html.DropDownListFor(model => model.tbl_KategoriID, new SelectList(ViewBag.Kategori, "SayfaId", "SayfaAd"))*@
+                                @Html.DropDownListFor(model => model.tbl_KategoriID, new SelectList(ViewBag.Kategori,"tbl_KategoriID", "KategoriAdi"))
+                                <span class="help-block"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Fotoğraf</label>
+                                <div class="col-sm-9">
+                                    <input type="file" name="resim" class="filestyle">
+                                    <span class="help-block"></span>
+                                </div>
+
+                                <label>Film içeriği:  </label><br>
+                                @Html.TextAreaFor(m => m.FilmBilgi, new { @class = "form-control1 control3" })
+                                <hr>
+                                <input type="submit" value="EKLE">
+</form>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,54 @@
+﻿@model FilmSitesi.Models.tbl_BizeUlas
+@{
+    ViewBag.Title = "BizeUlasSil";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mesaj Sil</h2>
+
+
+@{
+    ViewBag.Title = "Mesaj  Sil";
+}
+<div class="row  col-md-12">
+    <h2>Sil</h2>
+</div>
+
+    <h3></h3>
+    <div class="bs-example4" data-example-id="contextual-table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>ad</th>
+                    <th>Soyad</th>
+                    <th>E-mail</th>
+                    <th>Mesaj</th>
+                </tr>
+            </thead>
+            <tbody>
+             
+                    <tr class="active">
+                        <th scope="row">1</th>
+                        <td>@Model.BizeUlasAd</td>
+                        <td>@Model.BizeUlasSoyAd</td>
+                        <td>@Model.BizeUlasMail</td>
+                        <td>@Model.BizeUlasMesaj</td>
+                        <td>@Model.BizeUlasSoyAd</td>
+                         </tr>
+               
+
+            </tbody>
+        </table>
+    </div>
+@using (Html.BeginForm())
+{
+    <div class="row  col-md-12">
+        <p> Mesajı silmek istediğinizden eminmisiniz.</p>
+        <button type="submit" class="btn active">  Sil  </button>
+        <a href='@Url.Action("BizeUlasin", "Panel")'><b style="color:green;">Vazgeç</b></a>
+    </div>
+
+}
+
+

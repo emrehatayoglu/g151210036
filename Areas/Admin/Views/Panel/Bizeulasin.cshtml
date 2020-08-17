@@ -1,0 +1,36 @@
+﻿@model  List<FilmSitesi.Models.tbl_BizeUlas>
+@{
+    ViewBag.Title = "Bizeulasin";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bs-example4" data-example-id="contextual-table">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>ad</th>
+                <th>Soyad</th>
+                <th>E-mail</th>
+                <th>Mesaj</th>
+            </tr>
+        </thead>
+        <tbody>
+@{int i = 0; }
+@foreach (var item in Model)
+{
+    i++;
+            <tr class="active">
+                <th scope="row">@i</th>
+                <td>@item.BizeUlasAd</td>
+                <td>@item.BizeUlasSoyAd</td>
+                <td>@item.BizeUlasMail</td>
+                <td>@item.BizeUlasMesaj</td>
+                <td>
+                    @Html.ActionLink("Sil", "BizeUlasSil", "Panel", new { area = "Admin", id = item.tbl_BizeUlasID }, new { @class = "navbar-brand" })
+                </td>
+            </tr>
+}
+        </tbody>
+    </table>
+</div>

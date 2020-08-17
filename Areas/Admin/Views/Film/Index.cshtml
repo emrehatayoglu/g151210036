@@ -1,0 +1,43 @@
+﻿@model List<FilmSitesi.Models.tbl_Film>
+@{
+    ViewBag.Title = "Filmler";
+}
+<div class="row">
+    <div class="bs-example4" data-example-id="contextual-table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Resim</th>
+                    <th>Film Adı</th>
+                    <th>Kategori</th>
+                    <th>Yönetmen </th>
+                    <th>Film Bilgisi </th>
+                    <th>Yönetmen </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int i = 0; }
+                @foreach (var item in Model)
+                {
+                    i++;
+                    <tr class="active">
+                        <th scope="row">@i</th>
+                        <td><img src="@item.resimUrl" height="100" width="200"></td>
+                        <td>@item.FilmAdi</td>
+                        <td>@item.kategori.KategoriAdi</td>
+                        <td>@item.YonetmenAdi</td>
+                        <td>@item.FilmBilgi</td>
+                        <td>@item.FilmAdi</td>
+                        <td>
+                            @Html.ActionLink("Sil", "Sil", "Film", new { area = "Admin", id = item.tbl_FilmID }, new { @class = "navbar-brand" })
+                            @Html.ActionLink("Güncelle", "Guncelle", "Film", new { area = "Admin", id = item.tbl_FilmID }, new { @class = "navbar-brand" })
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

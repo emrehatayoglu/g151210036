@@ -1,0 +1,18 @@
+﻿@model FilmSitesi.Models.tbl_Kategori
+@{
+    ViewBag.Title = "Kategori Sil";
+}
+<div class="row  col-md-12">
+    <h2>Sil</h2>
+</div>
+<div class="row  col-md-12">
+    <h3>@Model.KategoriAdi</h3>
+</div>
+@using (Html.BeginForm())
+{
+    <div class="row  col-md-12">
+        <p> Kategorisini silmek istediğinizden eminmisiniz.</p>
+        <button type="submit" class="btn active">  Sil  </button>
+        <a href='@Url.Action("Index", "Kategori")'><b style="color:green;">Vazgeç</b></a>
+    </div>
+}
